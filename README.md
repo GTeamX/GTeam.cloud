@@ -1,6 +1,6 @@
 [//]: # (Main image, centered)
 <p align="center">
-  <img width="300" src="https://github.com/GTeamX/GTeamX/blob/prod/assets/images/gteam_cloud_logo_black_transparent.png?raw=true" alt="GTeam's Cloud logo">
+  <img width="300" src="https://github.com/GTeamX/GTeam.cloud/blob/prod/assets/images/gteam_cloud_logo_black_transparent.png?raw=true" alt="GTeam's Cloud logo">
 </p>
 
 [//]: # (Main title, centered)
