@@ -15,6 +15,9 @@
     <!-- Mobile compatibility. -->
     <script src="js/mobileMenu.js" defer></script>
 
+    <!-- Development banner warning message. -->
+    <script src="js/devWarning.js" defer></script>
+
 </head>
 <body class="bg-[#f4f5f7] text-black">
 
@@ -90,12 +93,19 @@
 
     </header>
 
+    <!-- Development banner as warning (only when on development/localhost site). -->
+    <div id="dev-banner" class="hidden sticky top-18.25 z-40 w-full bg-red-600 text-white font-extrabold text-sm sm:text-base tracking-wider uppercase py-2.5 px-6 flex items-center justify-between select-none shadow-md border-b border-black/20">
+        <span>DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
+        <span>GTeam.cloud 'dev' branch | commit '<span id="dev-commit-hash">FETCHING</span>'</span>
+        <span>DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
+    </div>
+
     <main>
 
-        <!-- Full-width GIF. -->
+        <!-- Full-width MP4. -->
         <section class="relative w-full h-dvh flex items-center justify-center overflow-hidden mb-24">
 
-            <!-- MKV with CoralGate scanner tests with CoralGate logs, anticheat kick (other player), coding. -->
+            <!-- MP4 with CoralGate scanner tests with CoralGate logs, anticheat kick (other player), coding. -->
             <video src="assets/mp4/gteam_cloud_background.mp4" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover"></video>
 
             <!-- Gradient from top blue to white. -->
