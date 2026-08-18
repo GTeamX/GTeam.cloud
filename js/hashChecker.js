@@ -10,80 +10,128 @@
     let manifestLoaded = false;
 
     async function loadManifest() {
+
         try {
+
             const res = await fetch(manifestUrl, { cache: "no-store" });
-            if (!res.ok) throw new Error("Bad response: " + res.status);
+            if (!res.ok) {
+                throw new Error("Bad response: " + res.status);
+            }
 
             const data = await res.json();
             if (!Array.isArray(data)) {
+
                 console.warn("Hash Checker: Manifest is not an array.");
                 return;
+
             }
 
             data.forEach(item => {
+
                 if (typeof item === 'object' && item.hash) {
+
                     const hash = item.hash.toLowerCase().trim();
                     const fileName = item.name || "Unknown File";
                     validHashes.set(hash, fileName);
+
                 }
+
             });
 
             manifestLoaded = true;
             console.log(`Hash Checker: Manifest loaded. ${validHashes.size} entries found.`);
+
         } catch (err) {
+
             console.warn("Hash Checker: Could not load manifest.", err);
             manifestLoaded = false;
+
         }
+
     }
 
     document.addEventListener("DOMContentLoaded", loadManifest);
 
     const highlightDropzone = () => {
-        if (!dropzone) return;
+
+        if (!dropzone) {
+            return;
+        }
+
         dropzone.classList.add("bg-[#165193]/10", "border-solid");
         dropzone.classList.remove("bg-white", "border-dashed");
+
     };
 
     const resetDropzone = () => {
-        if (!dropzone) return;
+
+        if (!dropzone) {
+            return;
+        }
+
         dropzone.classList.remove("bg-[#165193]/10", "border-solid");
         dropzone.classList.add("bg-white", "border-dashed");
+
     };
 
     if (dropzone) {
+
         dropzone.addEventListener("dragover", (e) => { e.preventDefault(); highlightDropzone(); });
         dropzone.addEventListener("dragleave", resetDropzone);
         dropzone.addEventListener("drop", (e) => {
+
             e.preventDefault();
             resetDropzone();
-            if (e.dataTransfer.files.length > 0) handleFiles(e.dataTransfer.files);
+
+            if (e.dataTransfer.files.length > 0) {
+                handleFiles(e.dataTransfer.files);
+            }
+
         });
+
     }
 
     if (fileInput) {
+
         fileInput.addEventListener("change", (e) => {
-            if (e.target.files.length > 0) handleFiles(e.target.files);
+
+            if (e.target.files.length > 0) {
+                handleFiles(e.target.files);
+            }
             fileInput.value = "";
+
         });
+
     }
 
     function handleFiles(files) {
+
         Array.from(files).forEach(file => {
+
             if (!document.getElementById(`hash-card-${file.name}-${Date.now()}`)) {
                 processFile(file);
             }
+
         });
+
     }
 
     function formatSize(bytes) {
-        if (bytes === 0) return '0 Bytes';
+
+        if (bytes === 0) {
+            return '0 Bytes';
+        }
+
         const k = 1024;
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
+
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+
     }
 
     async function processFile(file) {
+
         const uniqueId = `${file.name}-${Date.now()}`;
         const ui = createResultCard(file, uniqueId);
 
@@ -100,6 +148,7 @@
             let offset = 0;
 
             while (offset < file.size) {
+
                 const slice = file.slice(offset, offset + chunkSize);
                 const arrayBuffer = await slice.arrayBuffer();
                 const buffer = new Uint8Array(arrayBuffer);
@@ -111,12 +160,14 @@
                 ui.statusText.textContent = `Calculating... ${percent}%`;
 
                 await new Promise(resolve => requestAnimationFrame(resolve));
+
             }
 
             const finalHash = hasher.digest().toLowerCase();
             finalizeCard(ui, finalHash);
 
         } catch (error) {
+
             console.error(error);
             ui.statusText.textContent = "Error processing file.";
             ui.statusText.classList.replace("text-[#165193]", "text-red-600");
@@ -124,10 +175,13 @@
             ui.el.classList.replace("border-gray-200", "border-red-500");
             ui.el.classList.replace("bg-white", "bg-red-50");
             ui.copyBtn.classList.add("hidden");
+
         }
+
     }
 
     function createResultCard(file, id) {
+
         const card = document.createElement("div");
         card.id = `hash-card-${id}`;
         card.className = "relative bg-white border-2 border-gray-200 rounded-xl p-5 flex flex-col gap-1 shadow-sm transition-colors text-left animate-fade-in overflow-hidden";
@@ -196,9 +250,11 @@
             hashValueSpan: card.querySelector(".hash-value"),
             resultTab: card.querySelector(".result-tab")
         };
+
     }
 
     function finalizeCard(ui, hash) {
+
         ui.progressBarWrapper.classList.add("hidden");
         ui.hashContainer.classList.remove("hidden");
         ui.hashContainer.classList.add("flex");
@@ -226,6 +282,7 @@
         ui.copyBtn.className = `hidden items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-medium text-xs transition-all shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap text-white ${btnBgClass} inline-flex self-stretch w-[96px] shrink-0`;
 
         ui.copyBtn.addEventListener("click", () => {
+
             navigator.clipboard.writeText(hash);
 
             const originalContent = ui.copyBtn.innerHTML;
@@ -239,7 +296,9 @@
             setTimeout(() => {
                 ui.copyBtn.innerHTML = originalContent;
             }, 2000);
+
         });
+
     }
 
 })();
