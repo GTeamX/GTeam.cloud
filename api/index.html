@@ -96,9 +96,11 @@
 
     <!-- Development banner as warning (only when on development/localhost site). -->
     <div id="dev-banner" class="hidden sticky top-18.25 z-40 w-full bg-red-600 text-white font-extrabold text-sm sm:text-base tracking-wider uppercase py-2.5 px-6 flex items-center justify-between select-none shadow-md border-b border-black/20">
+
         <span>DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
         <span>GTeam.cloud 'dev' branch | commit '<span id="dev-commit-hash">FETCHING</span>'</span>
         <span>DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
+
     </div>
 
     <main>
@@ -116,9 +118,7 @@
             <div class="relative z-10 text-center px-6">
 
                 <!-- Quick description, using logo font, centered and aligned, big font. -->
-                <h1 class="font-crusader text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-md">
-                    Fetch, analyze, evaluate and block malicious IP addresses.
-                </h1>
+                <h1 class="font-crusader text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white drop-shadow-md">Fetch, analyze, evaluate and block malicious IP addresses.</h1>
 
                 <!-- GTeam's API description and main principle, under big text, using normal font. -->
                 <p class="font-inter text-[#f4f5f7]/90 text-lg md:text-xl font-normal mt-6 tracking-wide max-w-3xl mx-auto drop-shadow-sm leading-relaxed">
@@ -150,9 +150,7 @@
 
                 <h3 class="text-3xl font-grotesk font-bold text-[#165193] mb-4">Check an IP address live</h3>
 
-                <p class="text-lg text-black/80 leading-relaxed">
-                    Get information about any IP address within your browser.
-                </p>
+                <p class="text-lg text-black/80 leading-relaxed">Get information about any IP address within your browser.</p>
 
             </div>
 
@@ -229,9 +227,7 @@
 
         </section>
 
-        <p class="text-gray-500 font-inter text-[14px] italic text-center leading-tight">
-            Not working? Try checking the API's health with <a href="https://api.gteam.cloud/coralgate/v2/0.0.0.0" target="_blank" class="text-[#165193] font-semibold underline hover:text-[#165193]/80">the status page</a>!
-        </p>
+        <p class="text-gray-500 font-inter text-[14px] italic text-center leading-tight">Not working? Try checking our API's health with <a href="https://api.gteam.cloud/coralgate/v2/0.0.0.0" target="_blank" class="text-[#165193] font-semibold underline hover:text-[#165193]/80">the status page</a>!</p>
 
         <!-- Written by Claude Sonnet 5 (medium). -->
         <!-- Separator network/mesh visualization. Helps space out ISO List and Hash Checker sections. -->
@@ -358,9 +354,7 @@
 
                 <h3 class="text-3xl font-grotesk font-bold text-[#165193] mb-4">About</h3>
 
-                <p class="text-lg text-black/80 leading-relaxed">
-                    How the API works, how to use it and what is prohibited.
-                </p>
+                <p class="text-lg text-black/80 leading-relaxed">How our API works, how to use it and what is prohibited.</p>
 
             </div>
 
@@ -380,11 +374,11 @@
 
                         <p>Our API utilizes different endpoints to put information about an IP address together.</p>
 
-                        <p>We are actively using the RDAP database and their endpoints to retreive information about an IP address, entity or domain. Those information most the of the time do not expose sensitive information, they are all publicly accessible data that anyone can consult and see for their own eyes by using their API/endpoints provided in their documentation.</p>
+                        <p>We are actively using the RDAP database and their endpoints to retrieve information about an IP address, entity or domain. This information most of the time does not expose sensitive information, everything we provide is publicly accessible data that anyone can consult and see for their own eyes by using RDAP's API/endpoints provided in the RDAP documentation.</p>
 
-                        <p>Those said information above are then processed locally by our server in Germany (Falkenstein) on a shared host by our own self coded tools. We have a list of banned ISPs, entities and domains. <i>Note that even though the API does provide (most of the time) a country code, it is not used to ban or block any ip address, it is solely here as an indication provided by RDAP and can in some situation be missleading (where the ISP is legally declared VS where the IP operates).</i></p>
+                        <p>The data cited above is then processed locally by our server in Germany (Falkenstein) on a shared host by our own custom-built tools. We have a list of banned ISPs, entities and domains. <i>Note that even though our API does provide (most of the time) a country code, it is not used to ban or block any ip address, it is solely here as an indication provided by RDAP and can in some situation be missleading (where the ISP is legally declared VS where the IP operates).</i></p>
 
-                        <p>Our tools like mentioned above use simple principles. IP in the database are frequently refreshed with the latest information and cached for faster responses. If the information about an IP address (ISP, country, entities, domain) change between refresh, the IP's risk score increases. If it reaches a certain threshold it is marked as "blocked". If after a few weeks the information stays the same, the risk score slowly gets reduced every day until it goes under the blocking threshold. <i>Note that risk scored applied by a banned ISP, domain or entity cannot be reduced</i>. A global fetch score is finally applied, the more an IP address is requested by different IP addresses, the higher the risk score rises.</p>
+                        <p>Our tools like mentioned above use simple principles. IP in the database are frequently refreshed with the latest information and cached for faster responses. If the information about an IP address (ISP, country, entities, domain) change between refresh, the IP's risk score increases. If it reaches a certain threshold it is marked as "blocked". If after a few weeks the information stays the same, the risk score slowly gets reduced every day until it goes under the blocking threshold. <i>Note that risk score applied by a banned ISP, domain or entity cannot be reduced</i>. A global fetch score is finally applied, the more an IP address is requested by different IP addresses, the higher the risk score rises.</p>
 
                     </div>
 
@@ -397,17 +391,17 @@
 
                     <div class="text-black/80 leading-relaxed flex flex-col gap-4">
 
-                        <p>With everything said earlier, this is how to leverage the full potential and functionalities of the API.</p>
+                        <p>With everything said earlier, this is how to leverage the full potential and functionalities of our API.</p>
 
                         <p>The endpoint will always remain the same and is the only official source provided by GTeam: <b>https://api.gteam.cloud</b><br>
                             <i>Note that the endpoint exclusively runs as HTTPS.</i></p>
 
-                        <p>After that URL, you have the choice of using whatever serice you'd like. For now, we only provide you with "coralgate", the IP check service that we are describing here. So you would have the following: <b>https://api.gteam.cloud/coralgate</b></p>
+                        <p>After that URL, you have the choice of using whatever service you'd like. For now, we only provide you with "coralgate", the IP check service that we are describing here. So you would have the following: <b>https://api.gteam.cloud/coralgate</b></p>
 
-                        <p>Next up, you need to choose the version of the API service you are requesting. Since there's only "coralgate" for now, the following versions are available: "v1" and "v2", the latest version being obviously the better one.<br>
+                        <p>Next up, you need to choose the version of our API service you are requesting. Since there's only "coralgate" for now, the following versions are available: "v1" and "v2", the latest version being the recommended one.<br>
                             You would find yourself with: <b>https://api.gteam.cloud/coralgate/v2</b></p>
 
-                        <p>Finally, append the information needed by the API for a successful request. Here with our example, you put an IP address (IPv4/IPv6). So you would send a request to the following endpoint: <b>https://api.gteam.cloud/coralgate/v2/9.9.9.9</b></p>
+                        <p>Finally, append the information needed by our API for a successful request. Here with our example, you put an IP address (IPv4/IPv6). So you would send a request to the following endpoint: <b>https://api.gteam.cloud/coralgate/v2/9.9.9.9</b></p>
 
                         <p>You then receive a JSON encoded response with every field we have available for you. You are now free to use and process those fields as you wish.</p>
 
@@ -422,26 +416,45 @@
 
                     <div class="text-black/80 leading-relaxed flex flex-col gap-4 mb-4">
 
-                        <p>However, certain restrictions apply to the API. They are the following:</p>
+                        <p>However, certain restrictions apply to our API. They are the following:</p>
 
                     </div>
 
                     <ul class="flex flex-col gap-3 text-black/80 leading-relaxed">
 
                         <li class="flex items-start gap-3">
+
                             <svg class="w-5 h-5 mt-1 text-[#165193] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                            <span>Port/IP scanners, crawlers, MOTD/player-count fetchers, VPNs, proxies, TOR exit nodes, and automated hosting services (e.g., Shodan, OpenHeimer) are actively banned by the API.</span>
+                            <span>Port/IP scanners, crawlers, MOTD/player-count fetchers, VPNs, proxies, TOR exit nodes, and automated hosting services (e.g., Shodan, OpenHeimer) are actively banned by our API.</span>
+
                         </li>
 
                         <li class="flex items-start gap-3">
+
                             <svg class="w-5 h-5 mt-1 text-[#165193] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                            <span>Very fast/abusive request count. We operate as "fair use", however, if you exceed certain limits: <b>throttle, cache only and stripped responses at 300 req/min - 9000 req/h</b> and <b>temporarily blocked at 900 req/min - 27000 req/h</b>.<br>
-                                <i>Note that if you constantly exceed those limits, contact us for a special API key, or you might be permanently banned from using the API.</i></span>
+
+                            <div>
+
+                                <p>Very fast/abusive request count. We operate as "fair use", however, if you exceed certain limits:<br>
+
+                                <ul class="list-disc list-inside space-y-1 pl-2">
+
+                                    <li><b>Throttle, cache only and stripped responses:</b> 300 req/min - 9000 req/hr<br></li>
+                                    <li><b>Temporarily blocked:</b> 900 req/min - 27000 req/hr.<br></li>
+
+                                </ul>
+
+                                <i>Note that if you constantly exceed those limits, contact us for a special API key, or you might be permanently banned from using our API.</i>
+
+                            </div>
+
                         </li>
 
                         <li class="flex items-start gap-3">
+
                             <svg class="w-5 h-5 mt-1 text-[#165193] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                            <span>Exclusively use the API for what it was built for and obey the said limits, do not use or attempt to use it for something it wasn't built for.</span>
+                            <span>Exclusively use our API for what it was built for and obey the said limits.</span>
+
                         </li>
 
                     </ul>
@@ -455,7 +468,7 @@
 
                     <div class="text-black/80 leading-relaxed flex flex-col gap-4">
 
-                        <p>The API and our tools can make mistakes. If your IP, ISP or domain is unfairly blocked by the API, feel free to contact us via Email or open a ticket on our Discord server with plausible evidence that you are unfairly banned by the API. You will have to defend yourself as why we should unban you, an Email or ticket isn't a key to an immediate remediation.</p>
+                        <p>Our API and tools can make mistakes. If your IP, ISP or domain is unfairly blocked by our API, feel free to contact us via Email or open a ticket on our Discord server with plausible evidence that you are unfairly banned by our API. You will have to defend yourself as why we should unban you, an Email or ticket isn't a key to an immediate remediation.</p>
 
                         <p>We currently allow the following services: known voting sites and verified server lists.</p>
 
@@ -470,11 +483,12 @@
 
                     <div class="text-black/80 leading-relaxed flex flex-col gap-4">
 
-                        <p>To serve you the web page you are currently viewing and most of our services, we are technically obligated to store certain information. Those are, your current IP address (to serve you content). </p>
-
-                        <p>No server side language is utilized. Only JavaScript (client side) is used, no PHP (API endpoint being the exception), Node.js or whatever else you can think of is used to serve you the content you are seeing.</p>
+                        <p>To serve you the web page you are currently viewing and most of our services, we are technically obligated to store certain information.<br>
+                            Those are, your current IP address (to serve you content).</p>
 
                         <p>Our DDoS protection and DNS service, Cloudflare, also collect information that we cannot control such as: your IP address, full request details (User-Agent, Referer, Accept-Language, cookies if any exist, etc...), TLS/JA3 fingerprint (for bot detection/captcha), timing (timezone), geography (country/region), traffic pattern recognition (bot-fight mode).</p>
+
+                        <p>For our API to work we collect information via RDAP and then process the data returned by their API to ban or not an IP/entity/domain/ISP. All that information is then stored in a database that is kept secure with restrictive access to our team, the database is rarely (if never) accessed directly by a person. The data inside the database is frequently refreshed by our automations and all information is kept for an undetermined amount of time. When you send a request to our API we only store due to technical obligations your IP address within our web server logs (nginx), no other information is stored on our end. The web server logs are rotated every year in accordance to GDPR rules.</p>
 
                     </div>
 
@@ -499,9 +513,7 @@
                 <img src="../assets/images/gteam_logo_transparent.png" alt="GTeam white transparent logo" class="w-32 h-32 object-contain">
 
                 <!-- GitHub org description. -->
-                <p class="font-inter text-sm text-neutral-400 leading-relaxed max-w-xs">
-                    GTeam is a small organization focused on performance, speed, and efficiency. We develop straightforward anti-cheats, firewalls, and system utilities that just work.
-                </p>
+                <p class="font-inter text-sm text-neutral-400 leading-relaxed max-w-xs">GTeam is a small organization focused on performance, speed, and efficiency. We develop straightforward anti-cheats, firewalls, and system utilities that just work.</p>
 
             </div>
 
@@ -514,9 +526,11 @@
                     <h3 class="font-grotesk font-bold text-[24px] tracking-wider text-white uppercase">Tools</h3>
 
                     <nav class="flex flex-col gap-2.5 font-inter">
+
                         <a href="../index.html#projects" class="text-neutral-400 transition-colors duration-300 hover:text-white">CoralGate</a>
                         <a href="#" class="text-neutral-400 transition-colors duration-300 hover:text-white whitespace-nowrap inline-flex items-center gap-1.5">Cloud <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path></svg></a>
                         <a href="../api" class="text-neutral-400 transition-colors duration-300 hover:text-white whitespace-nowrap inline-flex items-center gap-1.5">API <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path></svg></a>
+
                     </nav>
 
                 </div>
@@ -530,9 +544,11 @@
                     <h3 class="font-grotesk font-bold text-[24px] tracking-wider text-white uppercase">Contact</h3>
 
                     <nav class="flex flex-col gap-2.5 font-inter">
+
                         <a href="https://github.com/GTeamX" target="_blank" rel="noopener noreferrer" class="text-neutral-400 transition-colors duration-300 hover:text-white">GitHub</a>
                         <a href="https://discord.gteam.cloud" target="_blank" rel="noopener noreferrer" class="text-neutral-400 transition-colors duration-300 hover:text-white">Discord</a>
                         <a href="mailto:gteamx@protonmail.com" class="text-neutral-400 transition-colors duration-300 hover:text-white">Email</a>
+
                     </nav>
 
                 </div>
@@ -544,9 +560,7 @@
         <!-- Bottom copyright. -->
         <div class="max-w-7xl mx-auto px-6 py-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium font-inter text-neutral-500">
 
-            <div>
-                &copy; 2022-2026 GTeam. All rights reserved.
-            </div>
+            <div>&copy; 2022-2026 GTeam. All rights reserved.</div>
 
         </div>
 
