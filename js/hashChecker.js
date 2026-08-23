@@ -5,7 +5,7 @@
     const fileInput = document.getElementById("hash-file-input");
     const resultsContainer = document.getElementById("hash-results");
 
-    const manifestUrl = "http://localhost:63342/GTeam.cloud/cloud/manifest.json"; // TODO: change
+    const manifestUrl = "https://dl.gteam.cloud/cloud/manifest.json";
     const validHashes = new Map();
     let manifestLoaded = false;
 
@@ -28,9 +28,9 @@
 
             data.forEach(item => {
 
-                if (typeof item === 'object' && item.hash) {
+                if (typeof item === 'object' && item.sha256) {
 
-                    const hash = item.hash.toLowerCase().trim();
+                    const hash = item.sha256.toLowerCase().trim();
                     const fileName = item.name || "Unknown File";
                     validHashes.set(hash, fileName);
 
