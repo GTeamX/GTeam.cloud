@@ -1,66 +1,66 @@
 [
     {
         "name": "Windows_11_en-US_x64_Consumer_26H1_06-2026_72dd14a5.iso",
-        "hash": "169fa9e5fe3a61ce56180337712ebf145440ad85aae0b92276ea3420bf352e55"
+        "sha256": "169fa9e5fe3a61ce56180337712ebf145440ad85aae0b92276ea3420bf352e55"
     },
     {
         "name": "Windows_11_en-US_ARM64_Consumer_26H1_06-2026_72dd14a5.iso",
-        "hash": "6f64d9a4cb661f1f7f616fc69e5697f018ffd1c8123a1625335d5184c0fb216c"
+        "sha256": "6f64d9a4cb661f1f7f616fc69e5697f018ffd1c8123a1625335d5184c0fb216c"
     },
     {
         "name": "Windows_11_en-US_ARM64_Business_26H1_06-2026_72dd14a5.iso",
-        "hash": "bb19c45ee3b28667b272276a628f1fa957f05ea5f044057616b6cdac6e2a0c85"
+        "sha256": "bb19c45ee3b28667b272276a628f1fa957f05ea5f044057616b6cdac6e2a0c85"
     },
     {
         "name": "Windows_11_en-US_x64_Business_26H1_06-2026_72dd14a5.iso",
-        "hash": "2eefb4e513ad9b275d18bd81c7c7bcbc6d87effe3a040dfd1353557008e99779"
+        "sha256": "2eefb4e513ad9b275d18bd81c7c7bcbc6d87effe3a040dfd1353557008e99779"
     },
     {
         "name": "Windows_11_fr-FR_ARM64_Consumer_26H1_06-2026_4759e6b0.iso",
-        "hash": "06d263c1b42c1ca16bbe733e289071c83c4cb047f9eb24380d774e76f3076c08"
+        "sha256": "06d263c1b42c1ca16bbe733e289071c83c4cb047f9eb24380d774e76f3076c08"
     },
     {
         "name": "Windows_11_fr-FR_x64_Business_26H1_06-2026_4759e6b0.iso",
-        "hash": "a296bda7166ab246345b646394cedc3b8cb06fff6ee4e0928d9e78211ef3a923"
+        "sha256": "a296bda7166ab246345b646394cedc3b8cb06fff6ee4e0928d9e78211ef3a923"
     },
     {
         "name": "Windows_11_fr-FR_x64_Consumer_26H1_06-2026_72dd14a5.iso",
-        "hash": "2d7d54fb7a15cd65eda44a622985666a3c79f57ac058a940f66076752e8a5577"
+        "sha256": "2d7d54fb7a15cd65eda44a622985666a3c79f57ac058a940f66076752e8a5577"
     },
     {
         "name": "Windows_11_fr-FR_ARM64_Business_26H1_06-2026_72dd14a5.iso",
-        "hash": "0a52bae13e2387599016eeba1fc1d4abbf07fa904e27b7cb306e1ffcb682543c"
+        "sha256": "0a52bae13e2387599016eeba1fc1d4abbf07fa904e27b7cb306e1ffcb682543c"
     },
     {
         "name": "Windows_10_en-US_x64_Consumer_22H2_10-2025_38efd00d.iso",
-        "hash": "600cdace2acf41e7f2f3cf68957fde58dbe23077ddffa7dce408f14d4915d14c"
+        "sha256": "600cdace2acf41e7f2f3cf68957fde58dbe23077ddffa7dce408f14d4915d14c"
     },
     {
         "name": "Windows_10_fr-FR_x64_Business_22H2_10-2025_5b94ff69.iso",
-        "hash": "a27215b0f3d06ee7d66d87c98f23d31ba4279808881a4bfae68fb5772805df0b"
+        "sha256": "a27215b0f3d06ee7d66d87c98f23d31ba4279808881a4bfae68fb5772805df0b"
     },
     {
         "name": "Windows_10_fr-FR_x64_Consumer_22H2_10-2025_38efd00d.iso",
-        "hash": "8a333e9ef72a5c868b1f2cb4f15cd708553de0ad6b44a3674a653e8cd6bc55f3"
+        "sha256": "8a333e9ef72a5c868b1f2cb4f15cd708553de0ad6b44a3674a653e8cd6bc55f3"
     },
     {
         "name": "Windows_10_en-US_x86_Consumer_22H2_10-2025_38efd00d.iso",
-        "hash": "cc31ed766f12f20bf6a9bd09b058356108f7eb7de4671963bdaa20ac011c4417"
+        "sha256": "cc31ed766f12f20bf6a9bd09b058356108f7eb7de4671963bdaa20ac011c4417"
     },
     {
         "name": "Windows_10_fr-FR_x86_Business_22H2_10-2025_59676ae8.iso",
-        "hash": "7a2ab2b2e53a643dd7b5fd5544acfa471bbc848435f0b892253b1d7eb7f0922a"
+        "sha256": "7a2ab2b2e53a643dd7b5fd5544acfa471bbc848435f0b892253b1d7eb7f0922a"
     },
     {
         "name": "Windows_10_fr-FR_x86_Consumer_22H2_10-2025_38efd00d.iso",
-        "hash": "65dfc420ae9463c524935797613f3ad57d7ad67383bd58c884c76d12c2f141ad"
+        "sha256": "65dfc420ae9463c524935797613f3ad57d7ad67383bd58c884c76d12c2f141ad"
     },
     {
         "name": "Windows_10_en-US_x86_Business_22H2_10-2025_d9ac9936.iso",
-        "hash": "8aa6be0a50c02cf1faa4f062a74db30d7780fe099b9c23f619cb02acb87a2226"
+        "sha256": "8aa6be0a50c02cf1faa4f062a74db30d7780fe099b9c23f619cb02acb87a2226"
     },
     {
         "name": "Windows_10_en-US_x64_Business_22H2_10-2025_d9ac9936.iso",
-        "hash": "2c23bc8b95a9314f15ebff881dcbea49651f52a96a0327d7aaf523aa66043765"
+        "sha256": "2c23bc8b95a9314f15ebff881dcbea49651f52a96a0327d7aaf523aa66043765"
     }
 ]
