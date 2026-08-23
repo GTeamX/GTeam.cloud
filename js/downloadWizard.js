@@ -28,6 +28,7 @@
                     options: [
                         { label: "Consumer", value: "Consumer", recommended: true },
                         { label: "Business", value: "Business" },
+                        { label: "Enterprise", value: "Enterprise", showIf: (answers) => (answers.version === "10")},
                     ],
                 },
                 {
@@ -35,13 +36,14 @@
                     question: "What architecture do you want ?",
                     options: [
                         { label: "x64", value: "x64", recommended: true },
-                        { label: "ARM64", value: "arm64", showIf: (answers) => answers.version === "11" },
+                        { label: "x86", value: "x86", showIf: (answers) => (answers.version === "10") },
+                        { label: "ARM64", value: "arm64", showIf: (answers) => (answers.version === "11" || answers.edition === "Enterprise")},
                     ],
                 }
             ],
 
-            baseUrl: "http://localhost:63342/GTeam.cloud/cloud/iso/", // TODO: change
-            manifestUrl: "http://localhost:63342/GTeam.cloud/cloud/manifest.json", // TODO: change
+            baseUrl: "https://dl.gteam.cloud/cloud/",
+            manifestUrl: "https://dl.gteam.cloud/cloud/manifest.json",
             filePattern: "^Windows_{version}_{language}_{architecture}_{edition}_.*\\.iso$"
 
         },
@@ -65,19 +67,12 @@
                         { label: "English (United States)", value: "en-US", recommended: true },
                         { label: "Français (France)", value: "fr-FR" },
                     ],
-                },
-                {
-                    key: "architecture",
-                    question: "What architecture do you want ?",
-                    options: [
-                        { label: "x64", value: "x64", recommended: true },
-                    ],
                 }
             ],
 
-            manifestUrl: "http://localhost:63342/GTeam.cloud/cloud/manifest.json", // TODO: change
-            baseUrl: "http://localhost:63342/GTeam.cloud/cloud/iso/", // TODO: change
-            filePattern: "^windows-server_{version}_{language}_{architecture}_.*\\.iso$"
+            manifestUrl: "https://dl.gteam.cloud/cloud/manifest.json",
+            baseUrl: "https://dl.gteam.cloud/cloud/",
+            filePattern: "^windows-server_{version}_{language}_x64_.*\\.iso$"
 
         }
 
