@@ -23,21 +23,21 @@
                     ],
                 },
                 {
-                    key: "edition",
-                    question: "What edition do you want ?",
-                    options: [
-                        { label: "Consumer", value: "Consumer", recommended: true },
-                        { label: "Business", value: "Business" },
-                        { label: "Enterprise", value: "Enterprise", showIf: (answers) => (answers.version === "10")},
-                    ],
-                },
-                {
                     key: "architecture",
                     question: "What architecture do you want ?",
                     options: [
                         { label: "x64", value: "x64", recommended: true },
                         { label: "x86", value: "x86", showIf: (answers) => (answers.version === "10") },
-                        { label: "ARM64", value: "arm64", showIf: (answers) => (answers.version === "11" || answers.edition === "Enterprise")},
+                        { label: "ARM64", value: "ARM64", showIf: (answers) => (answers.version === "10")},
+                    ],
+                },
+                {
+                    key: "edition",
+                    question: "What edition do you want ?",
+                    options: [
+                        { label: "Consumer", value: "Consumer", recommended: true, showIf: (answers) => (answers.architecture !== "ARM64") },
+                        { label: "Business", value: "Business", showIf: (answers) => (answers.architecture !== "ARM64") },
+                        { label: "Enterprise", value: "Enterprise", showIf: (answers) => (answers.architecture === "ARM64")},
                     ],
                 }
             ],
@@ -67,12 +67,21 @@
                         { label: "English (United States)", value: "en-US", recommended: true },
                         { label: "Français (France)", value: "fr-FR" },
                     ],
+                },
+                {
+                    key: "edition",
+                    question: "What edition do you want ?",
+                    options: [
+                        { label: "Consumer", value: "Consumer", recommended: true },
+                        { label: "Evaluation", value: "Evaluation", showIf: (answers) => (answers.version === "2019")},
+                        { label: "Enterprise", value: "Enterprise", showIf: (answers) => (answers.version === "2022" || answers.version === "2025")},
+                    ],
                 }
             ],
 
             manifestUrl: "https://dl.gteam.cloud/cloud/manifest.json",
             baseUrl: "https://dl.gteam.cloud/cloud/",
-            filePattern: "^windows-server_{version}_{language}_x64_.*\\.iso$"
+            filePattern: "^Windows-Server_{version}_{language}_x64_{edition}_.*\\.iso$"
 
         }
 
