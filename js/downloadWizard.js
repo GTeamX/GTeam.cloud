@@ -83,6 +83,60 @@
             baseUrl: "https://dl.gteam.cloud/cloud/",
             filePattern: "^Windows-Server_{version}_{language}_x64_{edition}_.*\\.iso$"
 
+        },
+
+        vmware_esx: {
+            title: "Download VMware ESX",
+            steps: [
+                {
+                    key: "version",
+                    question: "What version do you want ?",
+                    options: [
+                        { label: "ESX 9", value: "9" },
+                        { label: "ESX 8", value: "8", recommended: true },
+                    ],
+                },
+                {
+                    key: "type",
+                    question: "What type do you want ?",
+                    options: [
+                        { label: "Installer", value: ".iso", recommended: true },
+                        { label: "Patch bundle", value: "_patch.zip" },
+                    ],
+                }
+            ],
+
+            manifestUrl: "https://dl.gteam.cloud/cloud/manifest.json",
+            baseUrl: "https://dl.gteam.cloud/cloud/",
+            filePattern: "^VMware-ESX_{version}.*{type}$"
+
+        },
+
+        vmware_vcenter: {
+            title: "Download VMware vCenter",
+            steps: [
+                {
+                    key: "version",
+                    question: "What version do you want ?",
+                    options: [
+                        { label: "vCenter 9", value: "9" },
+                        { label: "vCenter 8", value: "8", recommended: true },
+                    ],
+                },
+                {
+                    key: "type",
+                    question: "What type do you want ?",
+                    options: [
+                        { label: "Installer", value: ".iso", recommended: true },
+                        { label: "Patch bundle", value: "_patch.iso", showIf: (answers) => (answers.version === "8") },
+                    ],
+                }
+            ],
+
+            manifestUrl: "https://dl.gteam.cloud/cloud/manifest.json",
+            baseUrl: "https://dl.gteam.cloud/cloud/",
+            filePattern: "^VMware-VCSA_{version}.*{type}$"
+
         }
 
     };
