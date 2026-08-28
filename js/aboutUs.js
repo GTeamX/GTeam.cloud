@@ -38,17 +38,11 @@
 
     // Layout.
     const CONFIG = {
-        itemsPerRow: 3,
-        vbWidth: 1000, // svg viewBox width.
-        rowHeight: 300, // vertical distance between row lines.
-        topMargin: 80, // y of the first row's line.
-        bottomPad: 180, // extra space below the last row for its content.
-        lineStart: 80, // x where the very first line begins.
-        lineEnd: 920, // x where the very last line ends.
-        turnRadius: 40, // corner radius at each turn.
-        contentGap: 28, // px gap between the line and content block below it.
-        startDotSize: 18, // px diameter of the true-round start marker (rendered as HTML, not SVG, so it can't be stretched).
-        tailLength: 80, // how far the fading dashed "continues..." tail extends past the last item, in viewBox units. Matches the existing 80-unit margin so it fades out exactly at the edge.
+        rowHeight: 300,
+        topMargin: 80,
+        bottomPad: 180,
+        contentGap: 28,
+        startDotSize: 18
     };
 
     // Creates snake path.
@@ -60,13 +54,14 @@
         // Evenly spaced x positions within a row, inset from the line ends.
         const xPositions = [];
         for (let i = 0; i < cfg.itemsPerRow; i++) {
-
-            xPositions.push(
-                cfg.itemsPerRow === 1
-                    ? cfg.vbWidth / 2
-                    : 250 + (500 * i) / (cfg.itemsPerRow - 1)
-            );
-
+            if (cfg.itemsPerRow === 1) {
+                xPositions.push(cfg.vbWidth / 2);
+            } else {
+                const padding = cfg.turnRadius + (cfg.vbWidth < 900 ? 30 : 100);
+                const startX = cfg.lineStart + padding;
+                const endX = cfg.lineEnd - padding;
+                xPositions.push(startX + ((endX - startX) * i) / (cfg.itemsPerRow - 1));
+            }
         }
 
         let d = "";
@@ -177,7 +172,16 @@
             return;
         }
 
+        const w = container.clientWidth;
+        const isMobile = w < 500;
+
+        CONFIG.vbWidth = w;
         CONFIG.itemsPerRow = getItemsPerRow();
+        CONFIG.lineStart = isMobile ? 30 : 80;
+        CONFIG.lineEnd = w - CONFIG.lineStart;
+        CONFIG.turnRadius = isMobile ? 25 : 40;
+        CONFIG.tailLength = 80;
+
         const { d, vbHeight, positions, startPos, endPos, endDir } = computeLayout(ITEMS, CONFIG);
         container.style.height = vbHeight + "px";
 
@@ -196,7 +200,7 @@
             : Math.max(endPos.x - CONFIG.tailLength, 0);
 
         container.innerHTML = `
-            <svg viewBox="0 0 ${CONFIG.vbWidth} ${vbHeight}" preserveAspectRatio="none" class="absolute inset-0 w-full h-full">
+            <svg viewBox="0 0 ${CONFIG.vbWidth} ${vbHeight}" class="absolute inset-0 w-full h-full">
                 <defs>
                     <linearGradient id="snakeTailFade" gradientUnits="userSpaceOnUse" x1="${endPos.x}" y1="${endPos.y}" x2="${tailX}" y2="${endPos.y}">
                         <stop offset="0%" stop-color="#165193" stop-opacity="0.85" />
