@@ -132,11 +132,11 @@
     </header>
 
     <!-- Development banner as warning (only when on development/localhost site). -->
-    <div id="dev-banner" class="hidden sticky top-18.25 z-40 w-full bg-red-600 text-white font-extrabold text-sm sm:text-base tracking-wider uppercase py-2.5 px-6 flex items-center justify-between select-none shadow-md border-b border-black/20">
+    <div id="dev-banner" class="hidden sticky top-18.25 z-40 w-full bg-red-600 text-white font-extrabold text-[11px] sm:text-sm tracking-wider uppercase py-1 px-2.5 sm:py-2.5 sm:px-6 flex items-center justify-between select-none shadow-md border-b border-black/20 gap-2 leading-tight">
 
-        <span>DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
-        <span>GTeam.cloud 'dev' branch | commit '<span id="dev-commit-hash">FETCHING</span>'</span>
-        <span>DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
+        <span class="truncate">DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
+        <span class="shrink-0">GTeam.cloud 'dev' branch | commit '<span id="dev-commit-hash">FETCHING</span>'</span>
+        <span class="hidden md:inline truncate">DEVELOPMENT BUILD. NOT FOR USE OR PRODUCTION. ALL RIGHTS RESERVED.</span>
 
     </div>
 
