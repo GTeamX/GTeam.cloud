@@ -28,16 +28,16 @@
                     options: [
                         { label: "x64", value: "x64", recommended: true },
                         { label: "x86", value: "x86", showIf: (answers) => (answers.version === "10") },
-                        { label: "ARM64", value: "ARM64", showIf: (answers) => (answers.version === "10")},
+                        { label: "ARM64", value: "ARM64" },
                     ],
                 },
                 {
                     key: "edition",
                     question: "What edition do you want ?",
                     options: [
-                        { label: "Consumer", value: "Consumer", recommended: true, showIf: (answers) => (answers.architecture !== "ARM64") },
-                        { label: "Business", value: "Business", showIf: (answers) => (answers.architecture !== "ARM64") },
-                        { label: "Enterprise", value: "Enterprise", showIf: (answers) => (answers.architecture === "ARM64")},
+                        { label: "Consumer", value: "Consumer", recommended: true, showIf: (answers) => !(answers.version === "10" && answers.architecture === "ARM64") },
+                        { label: "Business", value: "Business" },
+                        { label: "IoT", value: "IoT", showIf: (answers) => (answers.version === "11" && answers.language === "en-US") },
                     ],
                 }
             ],
@@ -67,21 +67,12 @@
                         { label: "English (United States)", value: "en-US", recommended: true },
                         { label: "Français (France)", value: "fr-FR" },
                     ],
-                },
-                {
-                    key: "edition",
-                    question: "What edition do you want ?",
-                    options: [
-                        { label: "Consumer", value: "Consumer", recommended: true },
-                        { label: "Evaluation", value: "Evaluation", showIf: (answers) => (answers.version === "2019")},
-                        { label: "Enterprise", value: "Enterprise", showIf: (answers) => (answers.version === "2022" || answers.version === "2025")},
-                    ],
                 }
             ],
 
             manifestUrl: "https://dl.gteam.cloud/cloud/manifest.json",
             baseUrl: "https://dl.gteam.cloud/cloud/",
-            filePattern: "^Windows-Server_{version}_{language}_x64_{edition}_.*\\.iso$"
+            filePattern: "^Windows-Server_{version}_{language}_x64_.*\\.iso$"
 
         },
 
