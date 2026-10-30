@@ -128,7 +128,7 @@
                     question: "What type do you want ?",
                     options: [
                         { label: "Installer", value: ".iso", recommended: true },
-                        { label: "Patch bundle", value: "_patch.iso", showIf: (answers) => (answers.version === "8") },
+                        { label: "Patch bundle", value: "_patch.iso" },
                     ],
                 }
             ],
